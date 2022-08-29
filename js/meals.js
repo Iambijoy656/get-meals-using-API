@@ -8,9 +8,10 @@ const loadMeals = (search) => {
 const displayMeals = meals => {
     // console.log(meals)
     const mealsContainer = document.getElementById('meals-container');
+    mealsContainer.innerHTML = ``;
 
     meals.forEach(meal => {
-        console.log(meal)
+        // console.log(meal)
         const mealDiv = document.createElement('div');
         mealDiv.classList.add('col');
         mealDiv.innerHTML = `
@@ -29,4 +30,13 @@ const displayMeals = meals => {
     });
 
 }
-loadMeals('a')
+
+const searchFood = () => {
+    const searchField = document.getElementById('search-field');
+    const searchText = searchField.value;
+    // console.log('searching', searchText)
+    loadMeals(searchText);
+    searchField.value = '';
+}
+
+loadMeals('')
